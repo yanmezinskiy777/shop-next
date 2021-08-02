@@ -1,5 +1,5 @@
 import type { InferGetStaticPropsType } from "next"
-import getAllProducts from "../framework/shopify/product/get-all-products"
+import getAllProducts from "@shopify/product/get-all-products"
 
 export async function getStaticProps(){
   const prod = await getAllProducts()
@@ -12,10 +12,10 @@ export async function getStaticProps(){
 }
 
 export default function Home({ products } : InferGetStaticPropsType<typeof getStaticProps>) {
-
+  console.log(products)
   return (
     <div>
-        {products && products.map(prod=> <p key={prod}>{prod}</p>)}
+        {products && products.map(prod => <p key={prod.id}>{prod.name}</p>)}
     </div>
   )
 }
