@@ -2,11 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -21,17 +17,15 @@
     "paths": {
       "@common": ["framework/common"],
       "@common/*": ["framework/common/*"],
-      "@shopify": ["framework/shopify"],
-      "@shopify/*": ["framework/shopify/*"],
-
+      "@framework": ["framework/shopify"],
+      "@framework/*": ["framework/shopify/*"]
     }
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "framework/common/config.js"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

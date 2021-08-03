@@ -1,15 +1,9 @@
 
-interface FetchParams {
-    query: string 
-}
+import { FetchResult, FetchParams } from "@common/types/config"
 
-type FetchResult<T> = {
-    data: T 
-}
-
-const fetchApi = async <T>({ query } : FetchParams): Promise<FetchResult<T>> => {
-    const url = `http://localhost:4000/graphql`
-    const res = await fetch(url, {
+const fetchApi = async <T>({ apiUrl, query } : FetchParams): Promise<FetchResult<T>> => {
+    
+    const res = await fetch(apiUrl, {
         method: "POST",
         headers:{
             "Content-type" : "application/json"
