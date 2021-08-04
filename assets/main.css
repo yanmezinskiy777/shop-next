@@ -1,0 +1,15 @@
+@import "./base.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.fit{
+    max-height: calc(100vh - 80px);
+}
+
+.root{
+    @apply h-full mx-auto;
+    max-width: 2460px;
+    background-color: theme("colors.green");
+    /* color: theme("textColor.base"); */
+}

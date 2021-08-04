@@ -1,4 +1,5 @@
 
+import "@assets/main.css"
 import type { AppProps } from "next/app"
 import type { FC } from "react"
 
