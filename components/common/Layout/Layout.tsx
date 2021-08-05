@@ -1,10 +1,10 @@
 
 import React, { FC } from 'react'
-//import style from "@assets/Layout.module.css"
+import style from "@assets/Layout.module.css"
 
 const Layout: FC = ({ children }) => {
     return (
-        <div className={`root`}>
+        <div className={style.root}>
             <main className="fit">
                 {children}
             </main>

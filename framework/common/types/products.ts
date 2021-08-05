@@ -1,6 +1,6 @@
 export interface ProductImages{
     alt?: string,
-    src: string
+    image: string
 }
 
 export interface Product {
