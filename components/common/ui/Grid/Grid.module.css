@@ -1,6 +1,6 @@
 
 .root{
-    @apply grid gap-2 grid-cols-1;
+    @apply grid grid-cols-1;
 
     @screen lg{
         @apply grid-cols-3 grid-rows-2
@@ -20,7 +20,9 @@
 .layoutA{
     & > *:nth-child(6n + 1),
     & > *:nth-child(6n + 5) {
-        @apply col-span-2 row-span-2;
+        @screen lg{
+            @apply col-span-2 row-span-2;
+        }
     }
 }
 
