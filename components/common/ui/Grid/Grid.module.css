@@ -26,6 +26,11 @@
     }
 }
 
-.layoutB{
-    color: blue;
+.layoutB {
+    & > *:nth-child(6n + 2),
+    & > *:nth-child(6n + 5) {
+        @screen lg{
+            @apply col-span-2 row-span-2;
+        }
+    }
 }

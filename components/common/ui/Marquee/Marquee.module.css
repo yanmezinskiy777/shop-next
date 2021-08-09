@@ -1,0 +1,14 @@
+
+
+.root{
+    height: 320px;
+    @apply flex flex-row;
+
+    & > * {
+        @apply flex-1;
+    }
+}
+
+.secondary{
+    @apply bg-black;
+}
