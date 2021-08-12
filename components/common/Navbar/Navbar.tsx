@@ -18,7 +18,7 @@ const Navbar = () => {
                         </a>
                     </Link>
                     <nav className="space-x-6 ml-6">
-                        <Link href="/all">
+                        <Link href="/">
                             <a className={style.link}>
                                    All
                             </a>
