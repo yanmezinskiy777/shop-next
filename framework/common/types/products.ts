@@ -15,5 +15,6 @@ export interface Product {
     slug: string,
     vendor: string,
     images: Array<ProductImages>
-    price: Price
+    price: Price,
+    description: string
 }

@@ -1,7 +1,7 @@
 
 import { FetchResult, FetchParams } from "@common/types/config"
 
-const fetchApi = async <T>({ apiUrl, query } : FetchParams): Promise<FetchResult<T>> => {
+const fetchApi = async <T>({ apiUrl, query, variables } : FetchParams): Promise<FetchResult<T>> => {
     
     const res = await fetch(apiUrl, {
         method: "POST",
@@ -9,7 +9,8 @@ const fetchApi = async <T>({ apiUrl, query } : FetchParams): Promise<FetchResult
             "Content-type" : "application/json"
         },
         body: JSON.stringify({
-            query
+            query,
+            variables
         })
     })
     const { data, errors } = await res.json() 

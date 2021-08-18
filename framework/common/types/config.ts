@@ -1,7 +1,12 @@
 
 export interface FetchParams{
     query: string,
-    apiUrl: string
+    apiUrl: string,
+    variables?: Variables
+}
+
+export type Variables = {
+    [slug: string]: string
 }
 
 export interface FetchResult<T>{
@@ -10,5 +15,6 @@ export interface FetchResult<T>{
 
 export interface ConfigParams{
     apiUrl: string,
-    fetch<T>(options: FetchParams): Promise<FetchResult<T>>
+    fetch<T>(options: FetchParams): Promise<FetchResult<T>>,
+    variables?: Variables
 }

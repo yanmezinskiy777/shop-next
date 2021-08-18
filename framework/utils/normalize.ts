@@ -25,7 +25,7 @@ export function normalizeProduct(productNode: ShopifyProduct): Product {
     ...rest
   } = productNode;
 
-  const normalizedProduct = {
+  return{
     id,
     name,
     vendor,
@@ -35,7 +35,5 @@ export function normalizeProduct(productNode: ShopifyProduct): Product {
     images: normalizedImageConnection(imageConnection.edges),
     price: normalizedPrice(priceRange.minVariantPrice),
     ...rest,
-  };
-
-  return normalizedProduct;
+  }
 }
