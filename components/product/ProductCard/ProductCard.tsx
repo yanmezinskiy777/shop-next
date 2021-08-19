@@ -15,7 +15,7 @@ const placeholder = "/placeholder.svg"
 
 const ProductCard: FC<Props> = ({ product, variant = "simple" }) => {
     return (
-        <Link href={`/products/${product.slug}`}> 
+        <Link href={`/products/${product?.slug}`}> 
         <a className={style.root}>
             {variant === "simple" ?
              <>
@@ -23,15 +23,15 @@ const ProductCard: FC<Props> = ({ product, variant = "simple" }) => {
                 <div className={style.productTag}>
                     <h3 className={style.productTitle}>
                         <span>
-                            {product.name}
+                            {product?.name}
                         </span>
                     </h3>
-                    <span className={style.productPrice}>{product.price.value} {product.price.currencyCode}</span>
+                    <span className={style.productPrice}>{product?.price.value} {product?.price.currencyCode}</span>
                 </div>
-                {product.images && <Image 
+                {product?.images && <Image 
                                     className={style.productImage}
-                                    alt={product.name ?? "Product image"} 
-                                    src={product.images[0].image ?? placeholder} 
+                                    alt={product?.name ?? "Product image"} 
+                                    src={product?.images[0].image ?? placeholder} 
                                     quality="90" 
                                     width={450} 
                                     height={450} 
@@ -40,12 +40,12 @@ const ProductCard: FC<Props> = ({ product, variant = "simple" }) => {
              : 
             <>
               <div className="absolute flex items-center justify-center z-20 inset-0">
-                  <span className="bg-black text-white p-3 font-bold text-xl">{product.name}</span>
+                  <span className="bg-black text-white p-3 font-bold text-xl">{product?.name}</span>
               </div>
-              {product.images && <Image 
+              {product?.images && <Image 
                                     className={style.productImage}
-                                    alt={product.name ?? "Product image"} 
-                                    src={product.images[0].image ?? placeholder} 
+                                    alt={product?.name ?? "Product image"} 
+                                    src={product?.images[0].image ?? placeholder} 
                                     quality="90" 
                                     width={320} 
                                     height={320} 

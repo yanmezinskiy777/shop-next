@@ -3,6 +3,7 @@ import { Layout } from "@components/common"
 import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType } from "next"
 import { getAllProductsPaths, getProduct } from "@framework/product"
 import { getConfig } from "@framework/api/config";
+import { ProductView } from "@components/product"
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const config = getConfig()
@@ -29,8 +30,7 @@ export default function ProductPage({ product }: InferGetStaticPropsType<typeof 
     console.dir(product)
     return(
         <>
-           <h1>{product?.name}</h1> 
-           <h1>{product?.slug}</h1>
+          {product && <ProductView product={product} />}
         </>
     )
 }

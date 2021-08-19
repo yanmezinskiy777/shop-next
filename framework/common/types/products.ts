@@ -4,8 +4,25 @@ export interface ProductImages{
 }
 
 interface Price{
-    value: string,
+    value: number,
     currencyCode: string
+}
+
+interface ProductOptionValues{
+    label: string,
+    hexColor?: string
+}
+
+interface ProrictOption{
+    id: string,
+    displayName: string,
+    values: ProductOptionValues[]
+}
+
+interface ProductVariant {
+    id: string,
+    name: string,
+    options: ProrictOption[]
 }
 
 export interface Product {
@@ -17,4 +34,6 @@ export interface Product {
     images: Array<ProductImages>
     price: Price,
     description: string
+    options: ProrictOption[],
+    variants: ProductVariant[]
 }
