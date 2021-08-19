@@ -4,6 +4,7 @@ import { Container } from '@components/common/ui'
 import Image from "next/image"
 import { Product } from '@common/types/products'
 import { ProductSlider } from "@components/product"
+import { Button } from "@components/common/ui"
 
 interface Props {
   product: Product
@@ -50,13 +51,12 @@ const ProductView: FC<Props> = ({ product }) => {
             </div>
           </section>
           <div>
-            <button
-              onClick={() => {}}
-              aria-label="Add to Cart"
-              className={s.button}
+            <Button
+             className={s.button}
+             onClick={() => alert("Click!")}
             >
               Add to Cart
-            </button>
+            </Button>
           </div>
         </div>
       </div>
