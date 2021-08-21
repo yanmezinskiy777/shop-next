@@ -15,6 +15,8 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "paths": {
+      "@lib": ["lib"],
+      "@lib/*": ["lib/*"],
       "@common": ["framework/common"],
       "@common/*": ["framework/common/*"],
       "@framework": ["framework/shopify"],
