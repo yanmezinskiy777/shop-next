@@ -15,6 +15,19 @@ export interface FetchResult<T>{
 
 export interface ConfigParams{
     apiUrl: string,
-    fetch<T>(options: FetchParams): Promise<FetchResult<T>>,
+    fetch: ApiFetcher,
     variables?: Variables
+}
+
+export interface ApiHooks {
+    cart: {
+      useAddItem: any
+    }
+}
+
+export type ApiFetcher<T = any> = (options: FetchParams) => Promise<FetchResult<T>>
+
+export interface ApiContextValues {
+    hooks: ApiHooks
+    fetcher: ApiFetcher
 }

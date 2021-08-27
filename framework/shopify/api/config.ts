@@ -1,4 +1,5 @@
 
+import { ConfigParams } from "@common/types/config";
 import { fetchApi } from "../../utils"
 
 class Config{
@@ -9,7 +10,7 @@ class Config{
         this.config = config
     }
 
-    getConfig(): any{
+    getConfig(): ConfigParams{
         return this.config
     }
 }
