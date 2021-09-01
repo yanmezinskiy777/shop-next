@@ -7,7 +7,6 @@ import { ProductSlider, Swatch } from "@components/product";
 import { StateChoises, getVariant } from "../helper"
 import { useUi } from "@components/context/Provider"
 import useAddItem from "@framework/cart/use-add-item"
-import { useApiProvider } from "@framework"
 
 interface Props {
   product: Product;
@@ -25,14 +24,14 @@ const ProductView: FC<Props> = ({ product }) => {
 
     const variant = getVariant(product, choises)
 
-    const addToCart = () => {
+    const addToCart = async () => {
       try {
         const item = {
           productId: String(product.id),
           variantId: variant?.id,
           variantOptions: variant?.options
         }
-        const output = addItem(item)
+        const output = await addItem(item)
         alert(JSON.stringify(output))
         onOpenSideBar()
       } catch (error) {

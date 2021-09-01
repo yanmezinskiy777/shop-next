@@ -8,9 +8,9 @@ type ReturnType = {
   products: ProductConnection;
 };
 
-const getAllProducts = async (config: ConfigParams): Promise<Array<Product>> => {
+const getAllProducts = async (options: ConfigParams): Promise<Array<Product>> => {
 
-  const { data } = await config.fetch<ReturnType>({ query: queryGetAllProducts, apiUrl: config.apiUrl });
+  const { data } = await options.config.fetch<ReturnType>({ query: queryGetAllProducts });
 
   return (
     data.products.edges.map(({ node: product }) => normalizeProduct(product)) ??

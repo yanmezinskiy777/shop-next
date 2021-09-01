@@ -16,7 +16,6 @@ class Config{
 }
 
 const confWrapper = new Config({
-    apiUrl: 'http://localhost:4000/graphql',
     fetch: fetchApi
 })
 

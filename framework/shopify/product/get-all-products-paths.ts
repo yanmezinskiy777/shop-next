@@ -9,9 +9,9 @@ type ReturnType = {
 }
 
 
-const getAllProductsPaths = async (config: ConfigParams): Promise<ReturnType> => {
+const getAllProductsPaths = async (options: ConfigParams): Promise<ReturnType> => {
 
-    const { data } = await config.fetch<{products: ProductConnection}>({ query: queryGetAllProductsPaths, apiUrl: config.apiUrl })
+    const { data } = await options.config.fetch<{products: ProductConnection}>({ query: queryGetAllProductsPaths })
 
     const paths = data.products.edges.map( ({ node: { handle }}) => ({ slug: handle }))
 
