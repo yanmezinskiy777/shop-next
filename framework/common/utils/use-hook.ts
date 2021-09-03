@@ -1,6 +1,7 @@
-import { useState } from "react";
 import { ApiHooks, MutationHook } from "@common/types/hooks";
 import { useApiProvider } from "@common";
+import useSWR from "swr";
+import { ApiFetcher } from "@common/types/config";
 
 export const useHook = (fn: (apiHooks: ApiHooks) => MutationHook) => {
   const { hooks } = useApiProvider();
@@ -20,35 +21,33 @@ export const useMutationHook = (hook: MutationHook) => {
   });
 };
 
-const useData = (hook, fetcher) => {
-  const [data, setData] = useState(null);
-
-  const hookFetcher = async () => {
+const useData = (hook:any, fetcher: ApiFetcher, ctx: any) => {
+  const hookFetcher = async (query: string) => {
     try {
-      return await hook.fetcher({ 
-          fetch: fetcher,
-          options: hook.fetcherOptions,
-          input: { }
-        });
+      return await hook.fetcher({
+        fetch: fetcher,
+        options: { query },
+        input: {},
+      });
     } catch (e) {
       throw new Error(e.message || e);
     }
   };
 
-  if (!data) {
-    hookFetcher().then((data) => {
-      setData(data);
-    });
-  }
+  const response = useSWR(
+     hook.fetcherOptions.query,
+     hookFetcher,
+     ctx.swrOptions
+    );
 
-  return data;
+  return response;
 };
 
 export const useSWRhook = (hook: any) => {
   const { fetcher } = useApiProvider();
   return hook.useHook({
-    useData() {
-      const data = useData(hook, fetcher);
+    useData(ctx: any) {
+      const data = useData(hook, fetcher, ctx);
       return data;
     },
   });
