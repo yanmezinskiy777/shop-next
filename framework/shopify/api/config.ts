@@ -1,6 +1,7 @@
 
-import { ConfigParams } from "@common/types/config";
+import { FetchParams } from "@common/types/config";
 import { fetchApi } from "../../utils"
+import { SHOPIFY_CHECKOUT_ID_COOKIE } from "@framework/const"
 
 class Config{
 
@@ -10,13 +11,14 @@ class Config{
         this.config = config
     }
 
-    getConfig(): ConfigParams{
+    getConfig(): FetchParams{
         return this.config
     }
 }
 
 const confWrapper = new Config({
-    fetch: fetchApi
+    fetch: fetchApi,
+    checkoutCookie: SHOPIFY_CHECKOUT_ID_COOKIE
 })
 
 export function getConfig(){
