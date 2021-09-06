@@ -1,5 +1,6 @@
 import { useCart } from "@common/cart";
 import { createCheckout } from "framework/utils";
+import checkoutToCart from "framework/utils/checkout-to-cart";
 import { useMemo } from "react";
 import { getCheckoutQuery } from "../../utils/queries";
 
@@ -21,7 +22,10 @@ export const handler = {
     } else {
       checkout = await createCheckout(fetch);
     }
-    return checkout;
+
+    const cart = checkoutToCart(checkout)
+    debugger
+    return cart;
   },
   useHook: ({ useData }: any) => {
     const data = useData({

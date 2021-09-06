@@ -13,16 +13,21 @@ interface ProductOptionValues{
     hexColor?: string
 }
 
-interface ProrictOption{
+export interface ProductOption{
     id: string,
     displayName: string,
     values: ProductOptionValues[]
 }
 
-interface ProductVariant {
+export interface ProductVariant {
     id: string,
     name: string,
-    options: ProrictOption[]
+    sku: string
+    image?: ProductImages
+    requiresShipping?: boolean
+    price: number
+    listPrice: number
+    options: ProductOption[]
 }
 
 export interface Product {
@@ -34,6 +39,6 @@ export interface Product {
     images: Array<ProductImages>
     price: Price,
     description: string
-    options: ProrictOption[],
+    options: ProductOption[],
     variants: ProductVariant[]
 }
